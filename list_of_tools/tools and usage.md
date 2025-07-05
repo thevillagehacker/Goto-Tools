@@ -194,11 +194,11 @@ python3 corsy.py -u https://example.com
 |**SecLists**|Massive wordlists (dirs, params, APIs, etc.)|[@danielmiessler/SecLists](https://github.com/danielmiessler/SecLists)|
 |**PayloadsAllTheThings**|Curated attack payloads|[@swisskyrepo/PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)|
 ## Burp Suite Extensions
-### Authorize
+### [Authorize](https://portswigger.net/bappstore/f9bbac8c4acf4aefa4d7dc92a991af2f)
 - **Use**: Test for IDOR/Broken Access Control in Burp
 - **Install**: Burp Extension Store    
 - **Usage**:
     - Intercept request with admin token    
     - Autorize replays with low-priv token and logs bypasses
-### ATOR (Automatic Token Obtain and Replace)
+### [ATOR (Automatic Token Obtain and Replace)](https://portswigger.net/bappstore/51327b097b354243b307b4ed87ba39eb)
 
