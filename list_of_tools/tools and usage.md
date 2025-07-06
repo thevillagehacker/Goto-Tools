@@ -113,6 +113,10 @@ nuclei -l urls.txt -severity high,critical -o vulns.txt
 ```sh
 nuclei -l urls.txt -t nuclei-templates/ -o vulns.txt
 ```
+**Scan list of URLs**
+```sh
+nuclei -list urls.txt -t nuclei-templates/ -o vulns.txt
+```
 ### Nikto
 ```sh
 perl nikto.pl -h https://example.com
