@@ -202,45 +202,28 @@ python3 corsy.py -u https://example.com
     - Autorize replays with low-priv token and logs bypasses
 ### [ATOR (Automatic Token Obtain and Replace)](https://portswigger.net/bappstore/51327b097b354243b307b4ed87ba39eb)
 
-
 ### [JSMiner](https://portswigger.net/bappstore/0ab7a94d8e11449daaf0fb387431225b)
-
 
 ### [Param Miner](https://portswigger.net/bappstore/17d2949a985c4b7ca092728dba871943)
 
-
-
 ### [Turbo Intruder](https://portswigger.net/bappstore/9abaa233088242e8be252cd4ff534988)
-
 
 ### [JWT Editor](https://portswigger.net/bappstore/26aaa5ded2f74beea19e2ed8345a93dd)
 
-
 ### [Retire JS](https://portswigger.net/bappstore/36238b534a78494db9bf2d03f112265c)
-
-
 ### [Active Scan++](https://portswigger.net/bappstore/3123d5b5f25c4128894d97ea1acc4976)
-
 
 ### [JSON Web Tokens](https://portswigger.net/bappstore/f923cbf91698420890354c1d8958fee6)
 
-
 ### [Logger++](https://portswigger.net/bappstore/470b7057b86f41c396a97903377f3d81)
-
-
 
 ### [403 Bypass](https://portswigger.net/bappstore/444407b96d9c4de0adb7aed89e826122)
 
-
-
 ### [JS Link Finder](https://portswigger.net/bappstore/0e61c786db0c4ac787a08c4516d52ccf)
-
 
 ### [InQL - GraphQL Scanner](https://portswigger.net/bappstore/296e9a0730384be4b2fffef7b4e19b1f)
 
-
 ### [HTTP Request Smuggler](https://portswigger.net/bappstore/aaaa60ef945341e8a450217a54a11646)
-
 
 #### [Smuggler](https://github.com/defparam/smuggler)
 ## Example Usage
@@ -253,4 +236,3 @@ python3 smuggler.py -u <URL>
 cat list_of_hosts.txt | python3 smuggler.py
 ```
 ### [IIS Tilde Enumeration](https://portswigger.net/bappstore/523ae48da61745aaa520ef689e75033b)
-
