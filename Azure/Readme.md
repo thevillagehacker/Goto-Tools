@@ -293,3 +293,4 @@ In Gray box testing, I normally ask for two types of credentials. One with a Rea
 - [https://attack.mitre.org/matrices/enterprise/cloud/azuread/](https://attack.mitre.org/matrices/enterprise/cloud/azuread/)  
 - [https://attack.mitre.org/matrices/enterprise/cloud/](https://attack.mitre.org/matrices/enterprise/cloud/)
 
+## [Awesome Azure Pen-test](https://github.com/Kyuu-Ji/Awesome-Azure-Pentest)
